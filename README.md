@@ -2,28 +2,28 @@
 
 ## Features and Technologies to (consider) incorporating:
 
-[ ] Single Page Application
+- [ ] Single Page Application
 
-[ ] User login
+- [ ] User login
 
-[ ] Websockets, possibly for a side chat
+- [ ] Websockets, possibly for a side chat
 
-[ ] Semantic-UI or something similar
+- [ ] Semantic-UI or something similar
 
-[ ] AngularJS or Ember or React 
+- [ ] AngularJS or Ember or React 
 
-[ ] A separate Ruby/+Rails server that serves as an API for my Express server?
+- [ ] A separate Ruby/+Rails server that serves as an API for my Express server?
 
-[ ] Automated emails
+- [ ] Automated emails
 
-[ ] Automated Testing via Protractor or something similar
+- [ ] Automated Testing via Protractor or something similar
 
-[ ] Handlebars or something similar
+- [ ] Handlebars or something similar
 
 ## Areas of interest
 
-[ ] Education
+- [ ] Education
 
-[ ] Performing Arts
+- [ ] Performing Arts
 
-[ ] Publishing and content creation
+- [ ] Publishing and content creation
