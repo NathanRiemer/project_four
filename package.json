@@ -1,0 +1,30 @@
+{
+  "name": "project_four",
+  "version": "1.0.0",
+  "description": "For my project I'm envisioning an application for tracking and reviewing students' classroom behavior. For the MVP, teachers will be able to log in and select Active Mode or Review Mode. In Active Mode the teacher will see a list of his/her students. Each student will have a button that creates a \"Good Behavior\" record, a button that creates a \"Bad Behavior\" record, and a button that allows the teacher to create a Note for the student. In Review Mode the teacher can view his/her students' records (in various configurations/graphs/etc).",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanRiemer/project_four.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanRiemer/project_four/issues"
+  },
+  "homepage": "https://github.com/NathanRiemer/project_four#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "mongodb": "^2.1.4",
+    "semantic-ui": "^2.1.8"
+  }
+}
