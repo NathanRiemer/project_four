@@ -26,12 +26,12 @@
 - Username
 - Password
 - Classes List
+  - Role
   - Class_id
 
 ### Behavior Record
 
 - Type (Good, Bad, Note)
-- Creator (teacher)
 - Timestamp
 - Note text (if a note)
 - Class_id
@@ -39,8 +39,10 @@
 - Student_id
 
 ### Class
+- id
 - Grade
 - Name
+- Subject
 - Year
 - Active?
 - Teachers:
