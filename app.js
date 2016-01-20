@@ -20,9 +20,13 @@ MongoClient.connect(mongoUrl, function(err, database) {
   process.on('exit', db.close);
 });
 
+var students = require('./routes/students');
+
 
 app.get('/', function(req, res) {
   res.render('index');
 });
+
+app.use('/students', students);
 
 app.listen(process.env.PORT || 3000);
