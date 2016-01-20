@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="BehaviorTrackerApp">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +9,8 @@
     <script src="semantic/dist/semantic.min.js"></script>
     <script type="text/javascript" src="angular/angular.min.js"></script>
     <script type="text/javascript" src="handlebars/handlebars.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/students_controller.js"></script>
   </head>
   <body>
     <div class="ui tabular labeled icon menu">
@@ -26,19 +28,19 @@
       </a>
     </div><!-- .ui.menu -->
 
-    <div class="ui three stackable cards">
-      <div class="card">
+    <div class="ui three stackable cards" ng-controller="StudentsController as students">
+      <div class="card" ng-repeat="student in students.all">
         <div class="content">
           <div class="left floated header">
-            Nathan Riemer
+            {{student.first_name}} {{student.last_name}}
           </div>
           <div class="three right floated buttons">
             <button class="ui labeled icon green button">
-              <i class="smile icon"></i>
+              <i class="plus icon"></i>
               Positive
             </button>
             <button class="ui labeled icon red button">
-              <i class="frown icon"></i>
+              <i class="minus icon"></i>
               Negative
             </button>
             <button class="ui labeled icon gray button">
@@ -46,49 +48,9 @@
               Note
             </button>
           </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <div class="left floated header">
-            Nathan Riemer
-          </div>
-          <div class="three right floated buttons">
-            <button class="ui labeled icon green button">
-              <i class="smile icon"></i>
-              Positive
-            </button>
-            <button class="ui labeled icon red button">
-              <i class="frown icon"></i>
-              Negative
-            </button>
-            <button class="ui labeled icon gray button">
-              <i class="write icon"></i>
-              Note
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <div class="left floated header">
-            Nathan Riemer
-          </div>
-          <div class="three right floated buttons">
-            <button class="ui labeled icon green button">
-              <i class="smile icon"></i>
-              Positive
-            </button>
-            <button class="ui labeled icon red button">
-              <i class="frown icon"></i>
-              Negative
-            </button>
-            <button class="ui labeled icon gray button">
-              <i class="write icon"></i>
-              Note
-            </button>
-      </div>
-    </div>
+        </div><!-- .content -->
+      </div><!-- .card -->
+    </div><!-- .ui.three.stackable.cards -->
 
   </body>
 </html>
