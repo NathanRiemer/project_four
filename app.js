@@ -19,29 +19,14 @@ mongoose.connect(mongoUrl, function(err) {
     console.log('Connection Successful');
   }
 });
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-
-// });
-
-// var db;
-// var MongoClient = require('mongodb').MongoClient;
-// var ObjectId = require('mongodb').ObjectId;
-// var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/behave';
-// MongoClient.connect(mongoUrl, function(err, database) {
-//   if (err) { throw err; }
-//   db = database;
-//   process.on('exit', db.close);
-// });
 
 var students = require('./routes/students');
-
+var classes = require('./routes/classes');
 
 app.get('/', function(req, res) {
   res.render('index');
 });
-
+app.use('/classes', classes);
 app.use('/students', students);
 
 app.listen(process.env.PORT || 3000);

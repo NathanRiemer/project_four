@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Student = require('../models/student.js');
+var Student = require('../models/student');
 
 router.get('/', function(req, res) {
   Student.find(function(err, students) {
@@ -18,14 +18,11 @@ router.post('/:id/behavior', function(req, res) {
     } else if (req.body.type === 'negative') {
       student.num_negatives++;
     }
-    student.save();
-    res.json({status: 'okay', student: student});
+    student.save(function(err) {
+      // Todo: Add error handling
+      res.json({status: 'okay', student: student});
+    });
   });
-
-
-
-  // console.log(req.params);
-  // console.log(req.body);
 });
 
 module.exports = router;
