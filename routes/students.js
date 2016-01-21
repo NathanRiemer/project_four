@@ -11,4 +11,21 @@ router.get('/', function(req, res) {
   });
 });
 
+router.post('/:id/behavior', function(req, res) {
+  Student.findById(req.params.id, function(err, student) {
+    if (req.body.type === 'positive') {
+      student.num_positives++;
+    } else if (req.body.type === 'negative') {
+      student.num_negatives++;
+    }
+    student.save();
+    res.json({status: 'okay', student: student});
+  });
+
+
+
+  // console.log(req.params);
+  // console.log(req.body);
+});
+
 module.exports = router;

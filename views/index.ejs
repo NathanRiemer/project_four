@@ -36,14 +36,14 @@
           </div>
           <div class="three right floated buttons">
             <div class="ui labeled button">
-              <div class="ui green button">
+              <div class="ui green button" ng-click="students.addRecord(student, 'positive')">
                 <i class="check icon"></i>
                 Positive
               </div>
               <a class="ui basic label">{{student.num_positives}}</a>
             </div>
             <div class="ui labeled button">
-              <div class="ui red button">
+              <div class="ui red button" ng-click="students.addRecord(student, 'negative')">
                 <i class="remove icon"></i>
                 Negative
               </div>
