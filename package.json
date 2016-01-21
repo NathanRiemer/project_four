@@ -25,6 +25,8 @@
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "mongodb": "^2.1.4",
+    "mongoose": "^4.3.6",
+    "mongoose-seed": "^0.1.5",
     "semantic-ui": "^2.1.8"
   }
 }

@@ -10,15 +10,30 @@ app.use(express.static(__dirname + '/bower_components'));
 app.set('view engine', 'ejs')
 
 // db
-var db;
-var MongoClient = require('mongodb').MongoClient;
-var ObjectId = require('mongodb').ObjectId;
+var mongoose = require('mongoose');
 var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/behave';
-MongoClient.connect(mongoUrl, function(err, database) {
-  if (err) { throw err; }
-  db = database;
-  process.on('exit', db.close);
+mongoose.connect(mongoUrl, function(err) {
+  if (err) {
+    console.log('Connection Error', err);
+  } else {
+    console.log('Connection Successful');
+  }
 });
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+
+// });
+
+// var db;
+// var MongoClient = require('mongodb').MongoClient;
+// var ObjectId = require('mongodb').ObjectId;
+// var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/behave';
+// MongoClient.connect(mongoUrl, function(err, database) {
+//   if (err) { throw err; }
+//   db = database;
+//   process.on('exit', db.close);
+// });
 
 var students = require('./routes/students');
 
