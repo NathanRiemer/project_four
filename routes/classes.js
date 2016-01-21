@@ -19,12 +19,11 @@ router.get('/:id', function(req, res) {
     console.log(students);
     res.json(students);
   });
-
-
-  // Class.findById(req.params.id, function(err, classObject) {
-  //   res.json(classObject);
-  // });
 });
+
+var students = require('./students');
+
+router.use('/:id/students', students);
 
 // router.get('/seed', function(req, res) {
 //   Student.find(function(err, students) {
