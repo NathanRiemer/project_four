@@ -26,11 +26,6 @@ function StudentsController($http) {
         if (response.data.status === 'okay') {
           student.num_positives = response.data.student.num_positives;
           student.num_negatives = response.data.student.num_negatives;
-
-          // var index = students.all.findIndex(function(pupil) {
-          //   return pupil._id === response.data.student._id;
-          // });
-          // students.all[index] = response.data.student;
         }
       });
   };
