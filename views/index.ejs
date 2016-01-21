@@ -35,14 +35,20 @@
             {{student.first_name}} {{student.last_name}}
           </div>
           <div class="three right floated buttons">
-            <button class="ui labeled icon green button">
-              <i class="check icon"></i>
-              Positive
-            </button>
-            <button class="ui labeled icon red button">
-              <i class="remove icon"></i>
-              Negative
-            </button>
+            <div class="ui labeled button">
+              <div class="ui green button">
+                <i class="check icon"></i>
+                Positive
+              </div>
+              <a class="ui basic label">{{student.num_positives}}</a>
+            </div>
+            <div class="ui labeled button">
+              <div class="ui red button">
+                <i class="remove icon"></i>
+                Negative
+              </div>
+              <a class="ui basic label">{{student.num_negatives}}</a>
+            </div>
             <button class="ui labeled icon gray button">
               <i class="write icon"></i>
               Note
