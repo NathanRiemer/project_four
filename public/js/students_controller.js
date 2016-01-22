@@ -18,8 +18,9 @@ function StudentsController($http, $routeParams) {
 
   students.addRecord = function(student, type) {
     var data = {
-      student: student,
-      type: type
+      type: type,
+      class_id: $routeParams.classId,
+      note_text: 'Blank for now'
     };
     $http
       .post('/students/' + student._id + '/behavior', data)
