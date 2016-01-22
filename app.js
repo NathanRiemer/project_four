@@ -2,6 +2,10 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+var session = require('express-session');
+var bcrypt = require('bcrypt');
+var MongoStore = require('connect-mongo')(session);
+
 // Configuration
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
