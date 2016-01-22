@@ -23,7 +23,7 @@ router.get('/:id', function(req, res) {
 
 var students = require('./students');
 
-router.use('/:id/students', students);
+router.use('/:class_id/students', students);
 
 // router.get('/seed', function(req, res) {
 //   Student.find(function(err, students) {

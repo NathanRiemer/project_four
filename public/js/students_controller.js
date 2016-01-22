@@ -1,16 +1,17 @@
 angular.module('BehaviorTrackerApp').controller('StudentsController', StudentsController);
 
-StudentsController.$inject = ['$http'];
+StudentsController.$inject = ['$http', '$routeParams'];
 
-function StudentsController($http) {
+function StudentsController($http, $routeParams) {
   var students = this;
 
   students.all = [];
 
   students.fetch = function() {
     $http
-      .get('/students')
+      .get('/classes/'+$routeParams.classId+'/students')
       .then(function(response) {
+        // console.log(response.data);
         students.all = response.data;
     });
   };
@@ -30,6 +31,6 @@ function StudentsController($http) {
       });
   };
 
-
+  console.log($routeParams.classId);
   students.fetch();
 };

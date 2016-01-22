@@ -8,55 +8,17 @@
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <script src="semantic/dist/semantic.min.js"></script>
     <script type="text/javascript" src="angular/angular.min.js"></script>
+    <script type="text/javascript" src="angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="handlebars/handlebars.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/students_controller.js"></script>
+    <script type="text/javascript" src="js/classes_controller.js"></script>
+
   </head>
   <body>
-    <div class="ui tabular labeled icon menu">
-      <a class="item">
-        <i class="arrow left icon"></i>
-        Back
-      </a>
-      <a class="item active">
-        <i class="users icon"></i>
-        Class
-      </a>
-      <a class="item">
-        <i class="feed icon"></i>
-        Feed
-      </a>
-    </div><!-- .ui.menu -->
 
-    <div class="ui three stackable cards" ng-controller="StudentsController as students">
-      <div class="card" ng-repeat="student in students.all">
-        <div class="content">
-          <div class="left floated header">
-            {{student.first_name}} {{student.last_name}}
-          </div>
-          <div class="three right floated buttons">
-            <div class="ui labeled button">
-              <div class="ui green button" ng-click="students.addRecord(student, 'positive')">
-                <i class="check icon"></i>
-                Positive
-              </div>
-              <a class="ui basic label">{{student.num_positives}}</a>
-            </div>
-            <div class="ui labeled button">
-              <div class="ui red button" ng-click="students.addRecord(student, 'negative')">
-                <i class="remove icon"></i>
-                Negative
-              </div>
-              <a class="ui basic label">{{student.num_negatives}}</a>
-            </div>
-            <button class="ui labeled icon gray button">
-              <i class="write icon"></i>
-              Note
-            </button>
-          </div>
-        </div><!-- .content -->
-      </div><!-- .card -->
-    </div><!-- .ui.three.stackable.cards -->
+
+    <div ng-view></div>
 
   </body>
 </html>

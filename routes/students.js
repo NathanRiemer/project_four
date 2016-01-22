@@ -1,16 +1,30 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({mergeParams: true});
 
 var mongoose = require('mongoose');
 var Student = require('../models/student');
+var Class = require('../models/class');
+
 
 var BehaviorRecord = require('../models/behavior_record');
 
 router.get('/', function(req, res) {
-  Student.find(function(err, students) {
-    if (err) return next(err);
-    res.json(students);
-  });
+  console.log(req.params);
+  if (req.params.class_id) {
+    Class.findById(req.params.class_id)
+      .populate('students')
+      .exec(function(err, classRecord) {
+        console.log(classRecord);
+        res.json(classRecord.students);
+    });
+  } else {
+    Student.find(function(err, students) {
+      if (err) return next(err);
+      res.json(students);
+    });
+  }
+
+
 });
 
 router.post('/:id/behavior', function(req, res) {
@@ -39,23 +53,6 @@ router.post('/:id/behavior', function(req, res) {
         });
       }, {type: req.body.type, createdAt: { $gte: todayDate }});
     });
-
-    // BehaviorRecord.find(function(err, brs) {
-    //   console.log(brs);
-    // });
-    // BehaviorRecord.count({type: req.body.type, student: req.params.id}, function(err, count) {
-    //   console.log(count);
-    // } );
-    // console.log(student.br.all);
-    // if (req.body.type === 'positive') {
-    //   student.num_positives++;
-    // } else if (req.body.type === 'negative') {
-    //   student.num_negatives++;
-    // }
-    // student.save(function(err) {
-    //   // Todo: Add error handling
-    //   res.json({status: 'okay', student: student});
-    // });
   });
 });
 
