@@ -22,10 +22,24 @@ router.post('/:id/behavior', function(req, res) {
       class_id: '56a12f5c500042bfba7c0c52'
     });
     newBR.save(function(err) {
-      // if (err) return handleError(err);
-      // console.log(err);
-      // console.log(newBR);
+      var today = new Date().toDateString();
+      var todayDate = new Date(today + ' 00:00:00 GMT-0500 (EST)');
+      console.log(todayDate);
+      student.getBRCount(function(err, count) {
+        console.log(count);
+        if (req.body.type === 'positive') {
+          student.num_positives = count;
+        } else if (req.body.type === 'negative') {
+          student.num_negatives = count;
+        }
+
+        student.save(function(err) {
+          // Todo: Add error handling
+          res.json({status: 'okay', student: student});
+        });
+      }, {type: req.body.type, createdAt: { $gte: todayDate }});
     });
+
     // BehaviorRecord.find(function(err, brs) {
     //   console.log(brs);
     // });
@@ -33,18 +47,15 @@ router.post('/:id/behavior', function(req, res) {
     //   console.log(count);
     // } );
     // console.log(student.br.all);
-    student.getBRCount(function(err, count) {
-      console.log(count);
-    }, {type: req.body.type});
-    if (req.body.type === 'positive') {
-      student.num_positives++;
-    } else if (req.body.type === 'negative') {
-      student.num_negatives++;
-    }
-    student.save(function(err) {
-      // Todo: Add error handling
-      res.json({status: 'okay', student: student});
-    });
+    // if (req.body.type === 'positive') {
+    //   student.num_positives++;
+    // } else if (req.body.type === 'negative') {
+    //   student.num_negatives++;
+    // }
+    // student.save(function(err) {
+    //   // Todo: Add error handling
+    //   res.json({status: 'okay', student: student});
+    // });
   });
 });
 
