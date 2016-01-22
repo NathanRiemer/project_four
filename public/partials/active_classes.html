@@ -17,9 +17,8 @@
       <div class="card" ng-repeat="cl in classes.all">
         <div class="content">
           <div class="left floated header">
-            <a href="#/classes/{{cl._id}}/students">{{cl.grade}}{{cl.name}}</a>
+            <a href="#/classes/{{cl._id}}/students">{{cl.grade}}{{cl.name}} {{cl.subject}}</a> Students: {{cl.students.length}}
           </div>
         </div><!-- .content -->
       </div><!-- .card -->
     </div><!-- .ui.three.stackable.cards -->
-    </div>

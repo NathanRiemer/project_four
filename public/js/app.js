@@ -5,6 +5,10 @@ var BehaviorTrackerApp = angular.module('BehaviorTrackerApp', [
 BehaviorTrackerApp.config(['$routeProvider', 
   function($routeProvider) {
     $routeProvider
+      .when('/login', {
+        templateUrl: 'partials/active_login.html',
+        controller: 'LoginController'
+      })
       .when('/classes', {
         templateUrl: 'partials/active_classes.html',
         controller: 'ClassesController'

@@ -4,6 +4,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Student = require('../models/student');
 var Class = require('../models/class');
+var Teacher = require('../models/teacher');
+
 
 router.get('/', function(req, res) {
   Class.find(function(err, classes) {
@@ -11,6 +13,36 @@ router.get('/', function(req, res) {
     res.json(classes);
   });
 });
+
+// router.get('/seed', function(req, res) {
+//   console.log('hey');
+//   Student.find(function(err, students) {
+//     if (err) return next(err);
+//     console.log(students[0]._id);
+//     var ids = students.map(function(student) {
+//       return student._id;
+//     });
+//     Teacher.find(function(err, teachers) {
+//       if (err) return next(err);
+//       console.log(teachers[0]._id);
+//       var teacher_ids = teachers.map(function(teacher) {
+//         return teacher._id;
+//       });
+
+//       var newClass = new Class({
+//         grade: '3',
+//         name: 'B',
+//         subject: 'science',
+//         students: ids,
+//         teachers: teacher_ids
+//       });
+//       newClass.save(function(err) {
+//         console.log(newClass);
+//         res.json(newClass);
+//       });
+//     });
+//   });
+// });
 
 router.get('/:id', function(req, res) {
   Class.findById(req.params.id)
@@ -25,24 +57,5 @@ var students = require('./students');
 
 router.use('/:class_id/students', students);
 
-// router.get('/seed', function(req, res) {
-//   Student.find(function(err, students) {
-//     if (err) return next(err);
-//     console.log(students[0]._id);
-//     var ids = students.map(function(student) {
-//       return student._id;
-//     });
-//     var newClass = new Class({
-//       grade: '3',
-//       name: 'B',
-//       subject: 'homeroom',
-//       students: ids
-//     });
-//     newClass.save(function(err) {
-//       console.log(newClass);
-//       res.json(newClass);
-//     })
-//   });
-// });
 
 module.exports = router;

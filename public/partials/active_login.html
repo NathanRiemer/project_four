@@ -1,0 +1,23 @@
+<div class="ui tabular labeled icon menu">
+  <a class="item">
+    <i class="arrow left icon"></i>
+    Back
+  </a>
+  <a class="item active">
+    <i class="users icon"></i>
+    Class
+  </a>
+  <a class="item">
+    <i class="feed icon"></i>
+    Feed
+  </a>
+</div><!-- .ui.menu -->
+
+<div ng-controller="LoginController as login">
+  <h1>Welcome {{login.currentUser.first_name}}</h1>
+  <form>
+    <input type="text" ng-model="login.username">
+    <input type="password" ng-model="login.password">
+    <button ng-click="login.submitCredentials()">Log in</button>
+  </form>
+</div>
