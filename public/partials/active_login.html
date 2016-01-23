@@ -14,10 +14,11 @@
 </div><!-- .ui.menu -->
 
 <div ng-controller="LoginController as login">
-  <h1>Welcome {{login.currentUser.first_name}}</h1>
+  <h1>{{login.message}}</h1>
   <form>
     <input type="text" ng-model="login.username">
     <input type="password" ng-model="login.password">
     <button ng-click="login.submitCredentials()">Log in</button>
   </form>
+  <button ng-click="login.pushButton()">Click</button>
 </div>

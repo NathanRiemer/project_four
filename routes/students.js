@@ -33,7 +33,8 @@ router.post('/:id/behavior', function(req, res) {
       type: req.body.type,
       student: student._id,
       note_text: req.body.note_text,
-      class_id: req.body.class_id
+      class_id: req.body.class_id,
+      teacher: req.session.teacherId
     });
     newBR.save(function(err) {
       // console.log(newBR);

@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 var session = require('express-session');
 var bcrypt = require('bcrypt');
-// var MongoStore = require('connect-mongo')(session);
+var MongoStore = require('connect-mongo')(session);
 
 // Configuration
 app.use(bodyParser.json());
@@ -12,10 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/bower_components'));
 app.set('view engine', 'ejs')
-
-app.use(session({
-  secret: 'success'
-}));
 
 // db
 var mongoose = require('mongoose');
@@ -27,6 +23,11 @@ mongoose.connect(mongoUrl, function(err) {
     console.log('Connection Successful');
   }
 });
+
+app.use(session({
+  secret: 'success',
+  store: new MongoStore({ url: mongoUrl })
+}));
 
 var students = require('./routes/students');
 var classes = require('./routes/classes');

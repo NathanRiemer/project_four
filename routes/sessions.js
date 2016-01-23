@@ -26,8 +26,11 @@ router.post('/', function(req, res) {
     if (data) {
       req.session.username = data.username;
       req.session.teacherId = data._id;
+      res.json({currentUser: data, success: true});
+    } else {
+      res.json({success: false});
     }
-    res.json(data);
+
   })
 });
 

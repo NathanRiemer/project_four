@@ -8,10 +8,16 @@ var Teacher = require('../models/teacher');
 
 
 router.get('/', function(req, res) {
-  Class.find(function(err, classes) {
-    if (err) return next(err);
-    res.json(classes);
-  });
+  console.log(req.session);
+  Teacher.findById(req.session.teacherId)
+    .populate('classes')
+    .exec(function(err, teacher) {
+      res.json(teacher);
+    });
+  // Class.find(function(err, classes) {
+  //   if (err) return next(err);
+  //   res.json(classes);
+  // });
 });
 
 // router.get('/seed', function(req, res) {
@@ -44,14 +50,14 @@ router.get('/', function(req, res) {
 //   });
 // });
 
-router.get('/:id', function(req, res) {
-  Class.findById(req.params.id)
-  .populate('students')
-  .exec(function(err, students) {
-    // console.log(students);
-    res.json(students);
-  });
-});
+// router.get('/:id', function(req, res) {
+//   Class.findById(req.params.id)
+//   .populate('students')
+//   .exec(function(err, students) {
+//     // console.log(students);
+//     res.json(students);
+//   });
+// });
 
 var students = require('./students');
 
