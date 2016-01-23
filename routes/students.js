@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
       .populate('students')
       .exec(function(err, classRecord) {
         // console.log(classRecord);
-        res.json(classRecord.students);
+        res.json(classRecord);
     });
   } else {
     Student.find(function(err, students) {

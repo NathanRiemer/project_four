@@ -16,6 +16,10 @@ BehaviorTrackerApp.config(['$routeProvider',
       .when('/classes/:classId/students', {
         templateUrl: 'partials/active_students.html',
         controller: 'StudentsController'
+      })
+      .when('/classes/:classId/students/:studentId/note', {
+        templateUrl: 'partials/active_note.html',
+        controller: 'NoteController'
       });
   }
 ]);

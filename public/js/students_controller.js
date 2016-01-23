@@ -1,18 +1,22 @@
 angular.module('BehaviorTrackerApp').controller('StudentsController', StudentsController);
 
-StudentsController.$inject = ['$http', '$routeParams'];
+StudentsController.$inject = ['$http', '$routeParams', '$location'];
 
-function StudentsController($http, $routeParams) {
+function StudentsController($http, $routeParams, $location) {
   var students = this;
 
   students.all = [];
+  students.classTitle = "";
+  students.classSubject = "";
 
   students.fetch = function() {
     $http
       .get('/classes/'+$routeParams.classId+'/students')
       .then(function(response) {
-        // console.log(response.data);
-        students.all = response.data;
+        console.log(response.data);
+        students.all = response.data.students;
+        students.classTitle = response.data.grade + response.data.name;
+        students.classSubject = response.data.subject;
     });
   };
 
@@ -32,6 +36,14 @@ function StudentsController($http, $routeParams) {
       });
   };
 
-  console.log($routeParams.classId);
+  students.newNote = function(student) {
+    // console.log('Note'+student.first_name);
+    // $location.path('/classes');
+    // console.log($location.path());
+    var newPath = $location.path() + '/' + student._id + '/note';
+    $location.path(newPath);    
+  };
+
+  // console.log($routeParams.classId);
   students.fetch();
 };
