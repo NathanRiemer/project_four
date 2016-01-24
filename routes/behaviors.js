@@ -19,8 +19,8 @@ router.get('/', function(req, res) {
         _id: {
             year: {$year: "$createdAt"},
             month: {$month: "$createdAt"},
-            day: {$dayOfMonth: "$createdAt"},
-            type: "$type"
+            day: {$dayOfMonth: "$createdAt"}
+            // type: "$type"
         },
         count: {$sum: 1}
     }},
@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
                 day:"$_id.day"
         },
         count: 1,
-        type: "$_id.type",
+        // type: "$_id.type",
         _id: 0
     }},
     {$sort: {"date": 1} }

@@ -5,7 +5,7 @@ ReviewController.$inject = ['$http', '$routeParams', '$location', 'auth'];
 function ReviewController($http, $routeParams, $location, auth) {
   var review = this;
   review.hello = "working";
-  review.behaviors = {};
+  review.behaviors = [];
 
   review.options = {
     chart: {
@@ -17,8 +17,8 @@ function ReviewController($http, $routeParams, $location, auth) {
         bottom: 60,
         left: 55
       },
-      x: function(d){ return d.label; },
-      y: function(d){ return d.value; },
+      x: function(d){ return d.date.day; },
+      y: function(d){ return d.count; },
       showValues: true,
       valueFormat: function(d){
         return d3.format(',.4f')(d);
@@ -52,7 +52,7 @@ function ReviewController($http, $routeParams, $location, auth) {
     $http
       .get('/api/behaviors')
       .then(function(response) {
-        console.log(response.data);
+        review.behaviors = [{key: "Cumulative Return", values: response.data}];
       });
   };
   review.getBehaviors();
