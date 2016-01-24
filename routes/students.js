@@ -23,8 +23,12 @@ router.get('/', function(req, res) {
       res.json(students);
     });
   }
+});
 
-
+router.get('/:id', function(req, res) {
+  Student.findById(req.params.id, function(err, student) {
+    res.json(student);
+  });
 });
 
 router.post('/:id/behavior', function(req, res) {

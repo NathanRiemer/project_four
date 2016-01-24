@@ -50,14 +50,14 @@ router.get('/', function(req, res) {
 //   });
 // });
 
-// router.get('/:id', function(req, res) {
-//   Class.findById(req.params.id)
-//   .populate('students')
-//   .exec(function(err, students) {
-//     // console.log(students);
-//     res.json(students);
-//   });
-// });
+router.get('/:id', function(req, res) {
+  Class.findById(req.params.id)
+  .populate('students')
+  .exec(function(err, students) {
+    // console.log(students);
+    res.json(students);
+  });
+});
 
 var students = require('./students');
 

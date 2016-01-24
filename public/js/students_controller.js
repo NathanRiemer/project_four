@@ -24,7 +24,7 @@ function StudentsController($http, $routeParams, $location) {
     var data = {
       type: type,
       class_id: $routeParams.classId,
-      note_text: 'Blank for now'
+      note_text: ''
     };
     $http
       .post('/students/' + student._id + '/behavior', data)
