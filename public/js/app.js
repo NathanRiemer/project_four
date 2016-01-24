@@ -1,5 +1,6 @@
 var BehaviorTrackerApp = angular.module('BehaviorTrackerApp', [
-  'ngRoute'
+  'ngRoute',
+  'nvd3'
 ]);
 
 BehaviorTrackerApp.factory('auth', function() {
@@ -36,6 +37,10 @@ BehaviorTrackerApp.config(['$routeProvider',
       .when('/classes/:classId/students/:studentId/note', {
         templateUrl: 'partials/active_note.html',
         controller: 'NoteController'
+      })
+      .when('/review', {
+        templateUrl: 'partials/review.html',
+        controller: 'ReviewController'
       });
   }
 ]);
