@@ -1,24 +1,37 @@
-<div class="ui tabular labeled icon menu">
-  <a class="item">
-    <i class="arrow left icon"></i>
-    Back
-  </a>
-  <a class="item active">
-    <i class="users icon"></i>
-    Class
-  </a>
-  <a class="item">
-    <i class="feed icon"></i>
-    Feed
-  </a>
-</div><!-- .ui.menu -->
-
 <div ng-controller="LoginController as login">
-  <h1>{{login.message}}</h1>
-  <form>
-    <input type="text" ng-model="login.username">
-    <input type="password" ng-model="login.password">
-    <button ng-click="login.submitCredentials()">Log in</button>
-  </form>
-  <button ng-click="login.pushButton()">Click</button>
+  <div class="ui tabular labeled icon menu">
+    <a ng-hide="authenticator.currentUser.username" class="item active">
+      <i class="sign in icon"></i>
+      Log in
+    </a>
+    <a ng-show="authenticator.currentUser.username" class="item">
+      <i class="student icon"></i>
+      {{authenticator.currentUser.username}}
+    </a>
+    <a class="item">
+      <i class="users icon"></i>
+      Class
+    </a>
+    <a class="item">
+      <i class="feed icon"></i>
+      Feed
+    </a>
+
+
+  </div><!-- .ui.menu -->
+
+  <div ng-hide="authenticator.currentUser.username">
+    <h1>{{login.message}}</h1>
+    <form>
+      <input type="text" ng-model="login.username">
+      <input type="password" ng-model="login.password">
+      <button ng-click="login.submitCredentials()">Log in</button>
+    </form>
+  </div>
+
+  <div ng-show="authenticator.currentUser.username">
+    <a href="#/classes">Track behavior</a>
+    <a href="#/review">Review data</a>
+  </div>
+
 </div>

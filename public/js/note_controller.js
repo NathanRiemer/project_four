@@ -42,7 +42,7 @@ function NoteController($http, $routeParams, $location) {
       class_id: $routeParams.classId,
       note_text: note.quickSelect === 'Other' ? note.details : note.quickSelect
     };
-    console.log(data);
+    // console.log(data);
     $http
       .post('/students/' + $routeParams.studentId + '/behavior', data)
       .then(function(response) {

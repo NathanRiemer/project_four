@@ -13,7 +13,7 @@ function StudentsController($http, $routeParams, $location) {
     $http
       .get('/classes/'+$routeParams.classId+'/students')
       .then(function(response) {
-        console.log(response.data);
+        // console.log(response.data);
         students.all = response.data.students;
         students.classTitle = response.data.grade + response.data.name;
         students.classSubject = response.data.subject;

@@ -2,6 +2,22 @@ var BehaviorTrackerApp = angular.module('BehaviorTrackerApp', [
   'ngRoute'
 ]);
 
+BehaviorTrackerApp.factory('auth', function() {
+  // var auth = {};
+  currentUser = {};
+  currentUser.username = "";
+  currentUser.first_name = "";
+  currentUser.last_name = "";
+
+  currentUser.setUser = function(user) {
+    currentUser.username = user.username;
+    currentUser.first_name = user.first_name;
+    currentUser.last_name = user.last_name;
+  };
+
+  return currentUser;
+});
+
 BehaviorTrackerApp.config(['$routeProvider', 
   function($routeProvider) {
     $routeProvider

@@ -8,7 +8,7 @@ var Teacher = require('../models/teacher');
 
 
 router.get('/', function(req, res) {
-  console.log(req.session);
+  // console.log(req.session);
   Teacher.findById(req.session.teacherId)
     .populate('classes')
     .exec(function(err, teacher) {
