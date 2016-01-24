@@ -4,17 +4,17 @@
       <i class="sign in icon"></i>
       Log in
     </a>
-    <a ng-show="authenticator.currentUser.username" class="item">
+    <a ng-show="authenticator.currentUser.username" class="item active" href="#/">
       <i class="student icon"></i>
       {{authenticator.currentUser.username}}
     </a>
-    <a class="item">
+    <a ng-show="authenticator.currentUser.username" class="item" href="#/classes">
       <i class="users icon"></i>
-      Class
+      Track
     </a>
-    <a class="item">
-      <i class="feed icon"></i>
-      Feed
+    <a ng-show="authenticator.currentUser.username" class="item" href="#/review">
+      <i class="line chart icon"></i>
+      Review
     </a>
 
 
@@ -30,8 +30,7 @@
   </div>
 
   <div ng-show="authenticator.currentUser.username">
-    <a href="#/classes">Track behavior</a>
-    <a href="#/review">Review data</a>
+    <h1>Welcome, {{authenticator.currentUser.first_name}} {{authenticator.currentUser.last_name}}</h1>
   </div>
 
 </div>

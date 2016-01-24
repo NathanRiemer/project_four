@@ -21,7 +21,7 @@ BehaviorTrackerApp.factory('auth', function() {
 BehaviorTrackerApp.config(['$routeProvider', 
   function($routeProvider) {
     $routeProvider
-      .when('/login', {
+      .when('/', {
         templateUrl: 'partials/active_login.html',
         controller: 'LoginController'
       })
