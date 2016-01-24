@@ -32,6 +32,7 @@ app.use(session({
 var students = require('./routes/students');
 var classes = require('./routes/classes');
 var sessionsRouter = require('./routes/sessions');
+var behaviors = require('./routes/behaviors');
 
 
 app.get('/', function(req, res) {
@@ -41,5 +42,6 @@ app.get('/', function(req, res) {
 app.use('/classes', classes);
 app.use('/students', students);
 app.use('/sessions', sessionsRouter);
+app.use('/api/behaviors', behaviors);
 
 app.listen(process.env.PORT || 3000);
