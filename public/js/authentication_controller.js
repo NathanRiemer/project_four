@@ -6,5 +6,14 @@ function AuthenticationController($http, $routeParams, $location, auth) {
   var authenticator = this;
   authenticator.currentUser = auth;
 
+  authenticator.checkIfLoggedIn = function() {
+    $http
+      .get('/sessions')
+      .then(function(response) {
+        console.log(response);
+        auth.setUser(response.data);
+      });
+  };
+  authenticator.checkIfLoggedIn();
 
 };

@@ -20,6 +20,21 @@ var authenticateUser = function(username, password, callback) {
   });
 };
 
+router.get('/', function(req, res) {
+  if (req.session.teacherId) {
+    Teacher.findById(req.session.teacherId, function(err, teacher) {
+      // console.log(teacher);
+      var response = {
+        email: teacher.email,
+        first_name: teacher.first_name,
+        last_name: teacher.last_name,
+        username: teacher.username
+      }
+      res.json(response);
+    });
+  }
+});
+
 
 router.post('/', function(req, res) {
   authenticateUser(req.body.username, req.body.password, function(data) {
