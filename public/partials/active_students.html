@@ -29,21 +29,21 @@
               <i class="check icon"></i>
               Positive
             </div>
-            <a class="ui basic label">{{student.num_positives}}</a>
+            <a class="ui basic label">{{student.count.positive}}</a>
           </div>
           <div class="ui labeled button">
             <div class="ui red button" ng-click="students.addRecord(student, 'negative')">
               <i class="remove icon"></i>
               Negative
             </div>
-            <a class="ui basic label">{{student.num_negatives}}</a>
+            <a class="ui basic label">{{student.count.negative}}</a>
           </div>
           <div class="ui labeled button">
             <div class="ui gray button" ng-click="students.newNote(student)">
               <i class="write icon"></i>
               Note
             </div>
-            <a class="ui basic label">0</a>
+            <a class="ui basic label">{{student.count.note}}</a>
           </div>
         </div>
       </div><!-- .content -->

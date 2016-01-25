@@ -14,5 +14,4 @@ StudentSchema.methods.getBRCount = function(callback, options) {
   return BehaviorRecord.count(options, callback);
 };
 
-
 module.exports = mongoose.model('Student', StudentSchema);

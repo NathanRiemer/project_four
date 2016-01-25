@@ -10,7 +10,6 @@ function AuthenticationController($http, $routeParams, $location, auth) {
     $http
       .get('/sessions')
       .then(function(response) {
-        console.log(response);
         auth.setUser(response.data);
       });
   };

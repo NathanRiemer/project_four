@@ -4,8 +4,6 @@ var router = express.Router({mergeParams: true});
 var mongoose = require('mongoose');
 var Student = require('../models/student');
 var Class = require('../models/class');
-
-
 var BehaviorRecord = require('../models/behavior_record');
 
 router.get('/', function(req, res) {
@@ -14,7 +12,6 @@ router.get('/', function(req, res) {
     Class.findById(req.params.class_id)
       .populate('students')
       .exec(function(err, classRecord) {
-        // console.log(classRecord);
         res.json(classRecord);
     });
   } else {
@@ -25,10 +22,25 @@ router.get('/', function(req, res) {
   }
 });
 
-router.get('/:id', function(req, res) {
+router.get('/:id/', function(req, res) {
   Student.findById(req.params.id, function(err, student) {
     res.json(student);
   });
+});
+
+router.get('/:id/:type', function(req, res) {
+  Student.findById(req.params.id, function(err, student) {
+    var today = new Date().toDateString();
+    var todayDate = new Date(today + ' 00:00:00 GMT-0500 (EST)');
+    if (req.params.type !== 'note') {
+      student.getBRCount(function(err, count) {
+        res.json({count: count})
+      }, {type: req.params.type, createdAt: { $gte: todayDate }});
+    } else {
+      student.getBRCount(function(err, count) {
+        res.json({count: count})}, {note_text: {$ne: ''}, createdAt: { $gte: todayDate }});
+      }
+  });  
 });
 
 router.post('/:id/behavior', function(req, res) {
@@ -41,23 +53,7 @@ router.post('/:id/behavior', function(req, res) {
       teacher: req.session.teacherId
     });
     newBR.save(function(err) {
-      // console.log(newBR);
-      var today = new Date().toDateString();
-      var todayDate = new Date(today + ' 00:00:00 GMT-0500 (EST)');
-      // console.log(todayDate);
-      student.getBRCount(function(err, count) {
-        // console.log(count);
-        if (req.body.type === 'positive') {
-          student.num_positives = count;
-        } else if (req.body.type === 'negative') {
-          student.num_negatives = count;
-        }
-
-        student.save(function(err) {
-          // Todo: Add error handling
-          res.json({status: 'okay', student: student});
-        });
-      }, {type: req.body.type, createdAt: { $gte: todayDate }});
+      res.json({status: 'okay'});
     });
   });
 });

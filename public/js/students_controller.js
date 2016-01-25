@@ -13,10 +13,28 @@ function StudentsController($http, $routeParams, $location) {
     $http
       .get('/classes/'+$routeParams.classId+'/students')
       .then(function(response) {
-        // console.log(response.data);
         students.all = response.data.students;
         students.classTitle = response.data.grade + response.data.name;
         students.classSubject = response.data.subject;
+
+        students.all.forEach(function(student) {
+          student.count = {};
+          $http
+            .get('/classes/'+$routeParams.classId+'/students/'+student._id+'/note')
+            .then(function(resp) {
+              student.count.note = resp.data.count;
+            });
+          $http
+            .get('/classes/'+$routeParams.classId+'/students/'+student._id+'/positive')
+            .then(function(resp) {
+              student.count.positive = resp.data.count;
+            });
+          $http
+            .get('/classes/'+$routeParams.classId+'/students/'+student._id+'/negative')
+            .then(function(resp) {
+              student.count.negative = resp.data.count;
+            });
+        });
     });
   };
 
@@ -30,20 +48,14 @@ function StudentsController($http, $routeParams, $location) {
       .post('/students/' + student._id + '/behavior', data)
       .then(function(response) {
         if (response.data.status === 'okay') {
-          student.num_positives = response.data.student.num_positives;
-          student.num_negatives = response.data.student.num_negatives;
+          student.count[type]++
         }
       });
   };
 
   students.newNote = function(student) {
-    // console.log('Note'+student.first_name);
-    // $location.path('/classes');
-    // console.log($location.path());
     var newPath = $location.path() + '/' + student._id + '/note';
     $location.path(newPath);    
   };
-
-  // console.log($routeParams.classId);
   students.fetch();
 };
