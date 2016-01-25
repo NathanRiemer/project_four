@@ -10,15 +10,20 @@ function NoteController($http, $routeParams, $location) {
 
   note.quickSelectList = {
     positive: [
-      'Listening well',
-      'Great answer',
-      'Helping others',
+      'Active Listening',
+      'Urgency',
+      'Clarity',
+      'Professionalism',
+      'Incorporating teaching point',
+      '100%!',
       'Other'
     ],
     negative: [
       'Not paying attention',
       'Disruptive',
       'Disrespecting classmates',
+      'Disrespecting teacher',
+      'Tardy',
       'Other'    
     ],
     neutral: [
