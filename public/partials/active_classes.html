@@ -1,20 +1,22 @@
-    <div class="ui tabular labeled icon menu">
-      <a class="item" href="#/">
-        <i class="arrow left icon"></i>
-        Back
-      </a>
-      <a class="item active">
-        <i class="users icon"></i>
-        Classes
-      </a>
-    </div><!-- .ui.menu -->
+<div class="ui tabular labeled icon menu">
+  <a class="item" href="#/">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item active">
+    <i class="university icon"></i>
+    Classes
+  </a>
+</div><!-- .ui.menu -->
 
-    <div class="ui three stackable cards" ng-controller="ClassesController as classes">
-      <div class="card" ng-repeat="cl in classes.all">
-        <div class="content">
-          <div class="left floated header">
-            <a href="#/classes/{{cl._id}}/students">{{cl.grade}}{{cl.name}} {{cl.subject}}</a> Students: {{cl.students.length}}
-          </div>
-        </div><!-- .content -->
-      </div><!-- .card -->
-    </div><!-- .ui.three.stackable.cards -->
+<div class="ui container">
+  <div class="ui three stackable cards" ng-controller="ClassesController as classes">
+    <div class="card" ng-repeat="cl in classes.all">
+      <div class="content">
+        <div class="left floated header">
+          <a href="#/classes/{{cl._id}}/students">{{cl.grade}}{{cl.name}} {{cl.subject}}:</a> {{cl.students.length}} Students
+        </div>
+      </div><!-- .content -->
+    </div><!-- .card -->
+  </div><!-- .ui.three.stackable.cards -->
+</div>

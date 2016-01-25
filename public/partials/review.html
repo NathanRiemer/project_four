@@ -1,4 +1,17 @@
-<div ng-controller="ReviewController as review">
-  <nvd3 options="review.options" data="review.behaviors"></nvd3>
+<div class="ui tabular labeled icon menu">
+  <a class="item" href="#/">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item active">
+    <i class="line chart icon"></i>
+    Review
+  </a>
+</div><!-- .ui.menu -->
 
+<div class="ui container">
+  <div ng-controller="ReviewController as review">
+    <nvd3 options="review.options" data="review.behaviors"></nvd3>
+
+  </div>
 </div>
