@@ -16,21 +16,25 @@
       <i class="line chart icon"></i>
       Review
     </a>
-
-
   </div><!-- .ui.menu -->
+  <div class="ui container">
+    <div ng-hide="authenticator.currentUser.username">
+      <h1>{{login.message}}</h1>
+      <form class="ui form">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" ng-model="login.username">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" ng-model="login.password">
+        </div>
+        <button class="ui fluid blue button" ng-click="login.submitCredentials()">Log in</button>
+      </form>
+    </div>
 
-  <div ng-hide="authenticator.currentUser.username">
-    <h1>{{login.message}}</h1>
-    <form>
-      <input type="text" ng-model="login.username">
-      <input type="password" ng-model="login.password">
-      <button ng-click="login.submitCredentials()">Log in</button>
-    </form>
+    <div ng-show="authenticator.currentUser.username">
+      <h1>Welcome, {{authenticator.currentUser.first_name}} {{authenticator.currentUser.last_name}}</h1>
+    </div>
   </div>
-
-  <div ng-show="authenticator.currentUser.username">
-    <h1>Welcome, {{authenticator.currentUser.first_name}} {{authenticator.currentUser.last_name}}</h1>
-  </div>
-
 </div>
