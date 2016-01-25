@@ -28,9 +28,12 @@ function LoginController($http, $routeParams, $location, auth) {
       });
   };
 
-  login.pushButton = function() {
-    // console.log($location.path());
-    $location.path('/classes');
+  login.logout = function() {
+    $http
+      .delete('/sessions')
+      .then(function(response) {
+        auth.setUser({username: '', first_name: '', last_name: ''});
+      });
   };
 
 };

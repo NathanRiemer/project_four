@@ -45,8 +45,13 @@ router.post('/', function(req, res) {
     } else {
       res.json({success: false});
     }
+  });
+});
 
-  })
+router.delete('/', function(req, res) {
+  req.session.username = '';
+  req.session.teacherId = '';
+  res.json({success: true});
 });
 
 module.exports = router;

@@ -29,12 +29,14 @@
           <label>Password</label>
           <input type="password" ng-model="login.password">
         </div>
-        <button class="ui fluid blue button" ng-click="login.submitCredentials()">Log in</button>
+        <button class="ui fluid blue button" ng-click="login.submitCredentials()">Log In</button>
       </form>
     </div>
 
     <div ng-show="authenticator.currentUser.username">
       <h1>Welcome, {{authenticator.currentUser.first_name}} {{authenticator.currentUser.last_name}}</h1>
+
+      <button class="ui fluid inverted blue button" ng-click="login.logout()">Log Out</button>
     </div>
   </div>
 </div>
