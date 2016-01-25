@@ -1,8 +1,8 @@
 angular.module('BehaviorTrackerApp').controller('StudentsController', StudentsController);
 
-StudentsController.$inject = ['$http', '$routeParams', '$location'];
+StudentsController.$inject = ['$http', '$routeParams', '$location', '$interval'];
 
-function StudentsController($http, $routeParams, $location) {
+function StudentsController($http, $routeParams, $location, $interval) {
   var students = this;
 
   students.all = [];
@@ -55,7 +55,23 @@ function StudentsController($http, $routeParams, $location) {
 
   students.newNote = function(student) {
     var newPath = $location.path() + '/' + student._id + '/note';
+    $interval.cancel(stop);
     $location.path(newPath);    
   };
+
+  var stop = $interval(function() {
+    students.fetch();
+  }, 30000);
+
+  students.backToClasses = function() {
+    $interval.cancel(stop);
+    $location.path('/classes');
+  }
+
+  // students.$on('$destroy', function() {
+  //   $interval.cancel(stop);
+  // });
+
+
   students.fetch();
 };

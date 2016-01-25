@@ -1,42 +1,40 @@
-<div ng-controller="LoginController as login">
-  <div class="ui tabular labeled icon menu">
-    <a ng-hide="authenticator.currentUser.username" class="item active">
-      <i class="sign in icon"></i>
-      Log in
-    </a>
-    <a ng-show="authenticator.currentUser.username" class="item active" href="#/">
-      <i class="student icon"></i>
-      {{authenticator.currentUser.username}}
-    </a>
-    <a ng-show="authenticator.currentUser.username" class="item" href="#/classes">
-      <i class="users icon"></i>
-      Track
-    </a>
-    <a ng-show="authenticator.currentUser.username" class="item" href="#/review">
-      <i class="line chart icon"></i>
-      Review
-    </a>
-  </div><!-- .ui.menu -->
-  <div class="ui container">
-    <div ng-hide="authenticator.currentUser.username">
-      <h1>{{login.message}}</h1>
-      <form class="ui form">
-        <div class="field">
-          <label>Username</label>
-          <input type="text" ng-model="login.username">
-        </div>
-        <div class="field">
-          <label>Password</label>
-          <input type="password" ng-model="login.password">
-        </div>
-        <button class="ui fluid blue button" ng-click="login.submitCredentials()">Log In</button>
-      </form>
-    </div>
+<div class="ui tabular labeled icon menu">
+  <a ng-hide="authenticator.currentUser.username" class="item active">
+    <i class="sign in icon"></i>
+    Log in
+  </a>
+  <a ng-show="authenticator.currentUser.username" class="item active" href="#/">
+    <i class="student icon"></i>
+    {{authenticator.currentUser.username}}
+  </a>
+  <a ng-show="authenticator.currentUser.username" class="item" href="#/classes">
+    <i class="users icon"></i>
+    Track
+  </a>
+  <a ng-show="authenticator.currentUser.username" class="item" href="#/review">
+    <i class="line chart icon"></i>
+    Review
+  </a>
+</div><!-- .ui.menu -->
+<div class="ui container">
+  <div ng-hide="authenticator.currentUser.username">
+    <h1>{{login.message}}</h1>
+    <form class="ui form">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" ng-model="login.username">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" ng-model="login.password">
+      </div>
+      <button class="ui fluid blue button" ng-click="login.submitCredentials()">Log In</button>
+    </form>
+  </div>
 
-    <div ng-show="authenticator.currentUser.username">
-      <h1>Welcome, {{authenticator.currentUser.first_name}} {{authenticator.currentUser.last_name}}</h1>
+  <div ng-show="authenticator.currentUser.username">
+    <h1>Welcome, {{authenticator.currentUser.first_name}} {{authenticator.currentUser.last_name}}</h1>
 
-      <button class="ui fluid inverted blue button" ng-click="login.logout()">Log Out</button>
-    </div>
+    <button class="ui fluid inverted blue button" ng-click="login.logout()">Log Out</button>
   </div>
 </div>

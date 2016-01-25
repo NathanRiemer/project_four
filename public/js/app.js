@@ -24,23 +24,23 @@ BehaviorTrackerApp.config(['$routeProvider',
     $routeProvider
       .when('/', {
         templateUrl: 'partials/active_login.html',
-        controller: 'LoginController'
+        controller: 'LoginController as login'
       })
       .when('/classes', {
         templateUrl: 'partials/active_classes.html',
-        controller: 'ClassesController'
+        controller: 'ClassesController as classes'
       })
       .when('/classes/:classId/students', {
         templateUrl: 'partials/active_students.html',
-        controller: 'StudentsController'
+        controller: 'StudentsController as students'
       })
       .when('/classes/:classId/students/:studentId/note', {
         templateUrl: 'partials/active_note.html',
-        controller: 'NoteController'
+        controller: 'NoteController as note'
       })
       .when('/review', {
         templateUrl: 'partials/review.html',
-        controller: 'ReviewController'
+        controller: 'ReviewController as review'
       });
   }
 ]);

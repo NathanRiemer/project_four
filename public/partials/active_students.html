@@ -1,52 +1,50 @@
-<div ng-controller="StudentsController as students">
-  <div class="ui tabular labeled icon menu">
-    <a class="item" href="#/classes">
-      <i class="arrow left icon"></i>
-      Back to <br>
-      Classes
-    </a>
-    <a class="item active">
-      <i class="users icon"></i>
-      {{students.classTitle}}<br>
-      {{students.classSubject}}
-    </a>
-    <!--<a class="item">
-      <i class="feed icon"></i>
-      Feed
-    </a>-->
-  </div><!-- .ui.menu -->
+<div class="ui tabular labeled icon menu">
+  <a class="item" ng-click="students.backToClasses()">
+    <i class="arrow left icon"></i>
+    Back to <br>
+    Classes
+  </a>
+  <a class="item active">
+    <i class="users icon"></i>
+    {{students.classTitle}}<br>
+    {{students.classSubject}}
+  </a>
+  <!--<a class="item">
+    <i class="feed icon"></i>
+    Feed
+  </a>-->
+</div><!-- .ui.menu -->
 
-  <div class="ui three stackable cards">
-    <!-- {{students.classTitle}} {{students.classSubject}} -->
-    <div class="card" ng-repeat="student in students.all">
-      <div class="content">
-        <div class="left floated header">
-          <i class="user icon"></i>{{student.first_name}} {{student.last_name}}
+<div class="ui three stackable cards">
+  <!-- {{students.classTitle}} {{students.classSubject}} -->
+  <div class="card" ng-repeat="student in students.all">
+    <div class="content">
+      <div class="left floated header">
+        <i class="user icon"></i>{{student.first_name}} {{student.last_name}}
+      </div>
+      <div class="three right floated buttons">
+        <div class="ui labeled button">
+          <div class="ui green button" ng-click="students.addRecord(student, 'positive')">
+            <i class="check icon"></i>
+            Positive
+          </div>
+          <a class="ui basic label">{{student.count.positive}}</a>
         </div>
-        <div class="three right floated buttons">
-          <div class="ui labeled button">
-            <div class="ui green button" ng-click="students.addRecord(student, 'positive')">
-              <i class="check icon"></i>
-              Positive
-            </div>
-            <a class="ui basic label">{{student.count.positive}}</a>
+        <div class="ui labeled button">
+          <div class="ui red button" ng-click="students.addRecord(student, 'negative')">
+            <i class="remove icon"></i>
+            Negative
           </div>
-          <div class="ui labeled button">
-            <div class="ui red button" ng-click="students.addRecord(student, 'negative')">
-              <i class="remove icon"></i>
-              Negative
-            </div>
-            <a class="ui basic label">{{student.count.negative}}</a>
-          </div>
-          <div class="ui labeled button">
-            <div class="ui gray button" ng-click="students.newNote(student)">
-              <i class="write icon"></i>
-              Note
-            </div>
-            <a class="ui basic label">{{student.count.note}}</a>
-          </div>
+          <a class="ui basic label">{{student.count.negative}}</a>
         </div>
-      </div><!-- .content -->
-    </div><!-- .card -->
-  </div><!-- .ui.three.stackable.cards -->
-</div>
+        <div class="ui labeled button">
+          <div class="ui gray button" ng-click="students.newNote(student)">
+            <i class="write icon"></i>
+            Note
+          </div>
+          <a class="ui basic label">{{student.count.note}}</a>
+        </div>
+      </div>
+    </div><!-- .content -->
+  </div><!-- .card -->
+</div><!-- .ui.three.stackable.cards -->

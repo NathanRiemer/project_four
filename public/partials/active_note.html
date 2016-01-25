@@ -1,57 +1,55 @@
-<div ng-controller="NoteController as note">
-  <div class="ui tabular labeled icon menu">
-    <a class="item" href="#{{note.cancelLink}}">
-      <i class="cancel icon"></i>
-      Cancel
-    </a>
-    <a class="item active">
-      <i class="write icon"></i>
-      Note
-    </a>
-  </div><!-- .ui.menu -->
+<div class="ui tabular labeled icon menu">
+  <a class="item" href="#{{note.cancelLink}}">
+    <i class="cancel icon"></i>
+    Cancel
+  </a>
+  <a class="item active">
+    <i class="write icon"></i>
+    Note
+  </a>
+</div><!-- .ui.menu -->
 
-  <div class="ui container">
-    <h1 class="ui header">{{note.student_name}}</h1>
-    <div class="ui form">
-      <div class="inline fields">
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" ng-model="note.type" value="positive">
-            <label><i class="big green smile icon"></i>Positive</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" ng-model="note.type" value="negative">
-            <label><i class="big red frown icon"></i>Negative</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" ng-model="note.type" value="neutral">
-            <label><i class="big meh icon"></i>Neutral</label>
-          </div>
+<div class="ui container">
+  <h1 class="ui header">{{note.student_name}}</h1>
+  <div class="ui form">
+    <div class="inline fields">
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" ng-model="note.type" value="positive">
+          <label><i class="big green smile icon"></i>Positive</label>
         </div>
       </div>
-      <div class="ui horizontal divider">
-        Quick Select
-      </div>
-
-      <div class="inline fields">
-        <div class="field" ng-repeat="quick in note.quickSelectList[note.type]">
-          <div class="ui radio checkbox">
-            <input type="radio" ng-model="note.quickSelect" value="{{quick}}">
-            <label>{{quick}}</label>
-          </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" ng-model="note.type" value="negative">
+          <label><i class="big red frown icon"></i>Negative</label>
         </div>
       </div>
-
-      <div class="field" ng-show="note.quickSelect === 'Other'" ng-model="note.note_text">
-        <label>Details</label>
-        <textarea ng-model="note.details"></textarea>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" ng-model="note.type" value="neutral">
+          <label><i class="big meh icon"></i>Neutral</label>
+        </div>
       </div>
+    </div>
+    <div class="ui horizontal divider">
+      Quick Select
+    </div>
 
-      <button class="ui fluid button" ng-click="note.addNote()">Submit</button>
-    </div><!-- .ui.form -->
-  </div>
+    <div class="inline fields">
+      <div class="field" ng-repeat="quick in note.quickSelectList[note.type]">
+        <div class="ui radio checkbox">
+          <input type="radio" ng-model="note.quickSelect" value="{{quick}}">
+          <label>{{quick}}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field" ng-show="note.quickSelect === 'Other'" ng-model="note.note_text">
+      <label>Details</label>
+      <textarea ng-model="note.details"></textarea>
+    </div>
+
+    <button class="ui fluid button" ng-click="note.addNote()">Submit</button>
+  </div><!-- .ui.form -->
 </div>
