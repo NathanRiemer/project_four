@@ -5,7 +5,6 @@ var Teacher = require('../models/teacher');
 
 var session = require('express-session');
 var bcrypt = require('bcrypt');
-// var MongoStore = require('connect-mongo')(session);
 
 var authenticateUser = function(username, password, callback) {
   Teacher.findOne({username: username}, function(err, data) {
@@ -23,7 +22,6 @@ var authenticateUser = function(username, password, callback) {
 router.get('/', function(req, res) {
   if (req.session.teacherId) {
     Teacher.findById(req.session.teacherId, function(err, teacher) {
-      // console.log(teacher);
       var response = {
         email: teacher.email,
         first_name: teacher.first_name,

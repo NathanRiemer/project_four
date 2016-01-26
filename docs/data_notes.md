@@ -5,15 +5,13 @@
 - id
 - First Name
 - Last Name
+- Possible in the future:
 - Contacts (a list of objects that contain):
   - Email Address
   - First Name
   - Last Name
   - Title (Mr./Mrs. etc)
   - Relationship to student
-- Classes:
-  - Status (eg current)
-  - Class_id
 - Username
 - Password
 
@@ -26,27 +24,24 @@
 - Username
 - Password
 - Classes List
-  - Role
   - Class_id
 
 ### Behavior Record
 
 - Type (Good, Bad, Note)
 - Timestamp
-- Note text (if a note)
+- Note text
 - Class_id
 - Teacher_id
 - Student_id
 
 ### Class
+
 - id
 - Grade
 - Name
 - Subject
-- Year
-- Active?
 - Teachers:
-  - Role (eg head teacher)
   - Teacher_id
 - Students:
   - Student_id

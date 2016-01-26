@@ -25,10 +25,8 @@ function FeedController($http, $routeParams, $location, $interval) {
       .get('/classes/'+$routeParams.classId + '/feed')
       .then(function(response) {
         feed.all = response.data;
-        // console.log(response.data);
       });
   };
-
 
   feed.fetchClass();
   feed.fetch();

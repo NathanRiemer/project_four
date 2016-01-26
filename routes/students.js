@@ -7,7 +7,6 @@ var Class = require('../models/class');
 var BehaviorRecord = require('../models/behavior_record');
 
 router.get('/', function(req, res) {
-  // console.log(req.params);
   if (req.params.class_id) {
     Class.findById(req.params.class_id)
       .populate('students')
@@ -31,10 +30,6 @@ router.get('/:id/', function(req, res) {
 router.get('/:id/:type', function(req, res) {
   Student.findById(req.params.id, function(err, student) {
     var todayDate = new Date(new Date().toDateString());
-    // var todayDate = new Date(today + ' 00:00:00 GMT-0500 (EST)');
-    // console.log(todayDate);
-
-    // var correctedDate = new Date(todayDate.get
     if (req.params.type !== 'note') {
       student.getBRCount(function(err, count) {
         res.json({count: count})

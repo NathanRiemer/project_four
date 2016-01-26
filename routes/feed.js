@@ -15,12 +15,7 @@ router.get('/', function(req, res) {
     .populate('teacher', 'first_name last_name')
     .exec(function(err, records) {
       res.json(records);
-    })
-
-  // , function(err, records) {
-  //   records.populate()
-  //   res.json(records);
-  // });
+    });
 });
 
 module.exports = router;

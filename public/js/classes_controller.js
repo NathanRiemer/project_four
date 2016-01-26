@@ -12,10 +12,8 @@ function ClassesController($http, $routeParams) {
       .get('/classes')
       .then(function(response) {
         classes.all = response.data.classes;
-        // console.log(response.data);
     });
   };
 
-  // console.log($routeParams.classId);
   classes.fetch();
 };

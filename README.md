@@ -1,6 +1,7 @@
 # Project Four - Classroom Behavior Tracker
 
-For my project I'm envisioning an application for tracking and reviewing students' classroom behavior. For the MVP, teachers will be able to log in and select Active Mode or Review Mode. In Active Mode the teacher will see a list of his/her students. Each student will have a button that creates a "Good Behavior" record, a button that creates a "Bad Behavior" record, and a button that allows the teacher to create a Note for the student. In Review Mode the teacher can view his/her students' records (in various configurations/graphs/etc). 
+My application is for tracking and reviewing students' classroom behavior. Teachers can log in and either track behavior or review data. If they choose to track behavior, they are able to select one of the their classes, bringing them to a list of the students in that class. They can record positive and negative behaviors for students, as well as notes. Notes may be positive, negative, or neutral and have quick-select options as well as the ability to manually enter text. Teachers can view a feed of all of the records associated with the class they are looking at.
+In review mode teachers can see graphs of behavior records over time.
 
 [Database notes](docs/data_notes.md)
 [ERD](docs/erd.png)
@@ -39,4 +40,32 @@ For my project I'm envisioning an application for tracking and reviewing student
 - angular-route
 
 - angular-nvd3
+
+## Resources: 
+
+### People:
+
+- Phil Lamplugh (instructor)
+
+- Sung Choi (instructor)
+
+- Anna Rankin (instructor)
+
+- Lisa Gaetjens (teacher/client interviewee)
+
+- Naomi Riemer (teacher/client interviewee)
+
+- Bridget McNamara (teacher/client interviewee)
+
+### Online Resources: 
+
+- https://randomapi.com/
+
+- http://krispo.github.io/angular-nvd3/#/
+
+- http://stackoverflow.com/questions/14747108/sort-by-date-in-mongoose-aggregation-framework
+
+- http://excellencenodejsblog.com/mongoose-aggregation-count-group-match-project/
+
+- https://github.com/amejiarosario/todoAPIjs/tree/b9ff3a863c78d72e71b5cc9eb573bb3cb9d87179
 

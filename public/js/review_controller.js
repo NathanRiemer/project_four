@@ -34,6 +34,7 @@ function ReviewController($http, $routeParams, $location, auth) {
     }
   };
 
+  //sample data for reference
   review.data = [{
     key: "Cumulative Return",
     values: [

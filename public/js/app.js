@@ -4,7 +4,6 @@ var BehaviorTrackerApp = angular.module('BehaviorTrackerApp', [
 ]);
 
 BehaviorTrackerApp.factory('auth', function() {
-  // var auth = {};
   currentUser = {};
   currentUser.username = "";
   currentUser.first_name = "";

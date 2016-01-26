@@ -6,12 +6,9 @@ var Student = require('../models/student');
 var Class = require('../models/class');
 var BehaviorRecord = require('../models/behavior_record');
 
+// More coming soon!
+
 router.get('/', function(req, res) {
-  // console.log(req.params);
-  // BehaviorRecord.find(function(err, behaviors) {
-  //   if (err) return next(err);
-  //   res.json(behaviors);
-  // });
   //Count by day by type for all records
   BehaviorRecord.aggregate([
     // {$match: {$and: [{created_date: {$gte: start_date}}, {created_date: {$lte: end_date}}]}},
