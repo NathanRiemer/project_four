@@ -4,8 +4,13 @@ My application is for tracking and reviewing students' classroom behavior. Teach
 In review mode teachers can see graphs of behavior records over time.
 
 [Deployed app](http://behavior-tracker.herokuapp.com/#/)
+
+[Trello](https://trello.com/b/vmikxhp4/ga-wdi-final-project)
+
 [Database notes](docs/data_notes.md)
+
 [ERD](docs/erd.png)
+
 [Client Interview](docs/client_interview_notes.md)
 
 ## Technologies used:
