@@ -151,7 +151,7 @@ teacherArray.forEach(function(teacher) {
 
 
 // classModelArray.forEach(function(classModel) {
-request.get('http://api.randomuser.me/?results=360&nat=us', function(error, htmlResponse, responseBody) {
+request.get('http://api.randomuser.me/?results=120&nat=us', function(error, htmlResponse, responseBody) {
   var responseBody = JSON.parse(responseBody);
   // console.log(responseBody.results);
   var results = responseBody.results;
@@ -159,15 +159,13 @@ request.get('http://api.randomuser.me/?results=360&nat=us', function(error, html
   // console.log(result.user);
   // console.log(results.length);
   classModelArray.forEach(function(classModel) {
-    for (var i=0; i<30; i++) {
+    for (var i=0; i<10; i++) {
       var result = results.shift();
       var first = result.user.name.first[0].toUpperCase() + result.user.name.first.slice(1);
       var last = result.user.name.last[0].toUpperCase() + result.user.name.last.slice(1);
       var newStudent = new Student({
         first_name: first,
-        last_name: last,
-        num_positives: 0,
-        num_negatives: 0
+        last_name: last
       });
       classModel.students.push(newStudent._id);
       newStudent.save();
@@ -192,31 +190,4 @@ request.get('http://api.randomuser.me/?results=360&nat=us', function(error, html
   //   console.log(newStudent);
   //   classModel.students.push(newStudent._id);
   // });
-// });
-
-// console.log(classModelArray);
-// Class.find(function(err, classes) {
-//   console.log(classes);
-// });
-
-// request.get('http://api.randomuser.me/?results=360&nat=us', function(error, htmlResponse, responseBody) {
-//   var responseBody = JSON.parse(responseBody);
-//   responseBody.results.forEach(function(result) {
-//     var first = result.user.name.first[0].toUpperCase() + result.user.name.first.slice(1);
-//     var last = result.user.name.last[0].toUpperCase() + result.user.name.last.slice(1);
-//   });
-// });
-
-
-// Teacher.findOne({username: 'philco'}, function(err, teacher) {
-//   Class.find(function(err, classes) {
-//     console.log(classes);
-//     var class_ids = classes.map(function(classObj) {
-//       return classObj._id;
-//     });
-//     teacher.classes = class_ids;
-//     teacher.save(function(err) {
-//       console.log(teacher);
-//     });
-//   });
 // });
