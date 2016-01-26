@@ -4,26 +4,39 @@ For my project I'm envisioning an application for tracking and reviewing student
 
 [Database notes](docs/data_notes.md)
 [ERD](docs/erd.png)
+[Client Interview](docs/client_interview_notes.md)
 
+## Technologies used:
 
-## Features and Technologies to incorporate:
+### NPM: 
 
-- [ ] Express Server (MVP)
+- bcrypt
 
-- [ ] Single Page Application (MVP)
+- body-parser
 
-- [ ] User login (MVP)
+- connect-mongo
 
-- [ ] Websockets, possibly for a side chat
+- express
 
-- [ ] Semantic-UI or something similar (MVP)
+- express-session
 
-- [ ] AngularJS or Ember or React (MVP)
+- mongodb
 
-- [ ] A separate Ruby/+Rails server that serves as an API for my Express server?
+- mongoose
 
-- [ ] Automated emails
+- request
 
-- [ ] Automated Testing via Protractor or something similar
+- semantic-ui
 
-- [ ] Handlebars or something similar (MVP)
+### Bower:
+
+- jquery
+
+- handlebars
+
+- angular
+
+- angular-route
+
+- angular-nvd3
+
