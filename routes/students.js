@@ -30,8 +30,11 @@ router.get('/:id/', function(req, res) {
 
 router.get('/:id/:type', function(req, res) {
   Student.findById(req.params.id, function(err, student) {
-    var today = new Date().toDateString();
-    var todayDate = new Date(today + ' 00:00:00 GMT-0500 (EST)');
+    var todayDate = new Date(new Date().toDateString());
+    // var todayDate = new Date(today + ' 00:00:00 GMT-0500 (EST)');
+    console.log(todayDate);
+
+    // var correctedDate = new Date(todayDate.get
     if (req.params.type !== 'note') {
       student.getBRCount(function(err, count) {
         res.json({count: count})
@@ -53,6 +56,7 @@ router.post('/:id/behavior', function(req, res) {
       teacher: req.session.teacherId
     });
     newBR.save(function(err) {
+      console.log(newBR.createdAt);
       res.json({status: 'okay'});
     });
   });
