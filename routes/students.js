@@ -32,7 +32,7 @@ router.get('/:id/:type', function(req, res) {
   Student.findById(req.params.id, function(err, student) {
     var todayDate = new Date(new Date().toDateString());
     // var todayDate = new Date(today + ' 00:00:00 GMT-0500 (EST)');
-    console.log(todayDate);
+    // console.log(todayDate);
 
     // var correctedDate = new Date(todayDate.get
     if (req.params.type !== 'note') {

@@ -1,0 +1,40 @@
+<div class="ui tabular labeled icon menu">
+  <a class="item" href="#/classes">
+    <i class="arrow left icon"></i>
+    Back to <br>
+    Classes
+  </a>
+  <a class="item" href="{{feed.classLink}}">
+    <i class="users icon"></i>
+    {{feed.classTitle}}<br>
+    {{feed.classSubject}}
+  </a>
+  <a class="item active">
+    <i class="feed icon"></i>
+    Feed
+  </a>
+</div><!-- .ui.menu -->
+
+<div class="ui feed">
+  <div class="event" ng-repeat="item in feed.all">
+    <div class="ui inverted green label" ng-if="item.type === 'positive'">
+      <i class="smile icon"></i>
+    </div>
+    <div class="ui inverted red label" ng-if="item.type === 'negative'">
+      <i class="frown icon"></i>
+    </div>
+    <div class="ui inverted gray label" ng-if="item.type === 'neutral'">
+      <i class="write icon"></i>
+    </div>
+
+    <div class="content">
+      <div class="summary">
+        {{item.student.first_name}} {{item.student.last_name}} from {{item.teacher.first_name}} {{item.teacher.last_name}}
+        <div class="date">{{item.createdAt}}</div>
+      </div>
+      <div class="extra text" ng-if="item.note_text">
+        {{item.note_text}}
+      </div>
+    </div>
+  </div>
+</div>

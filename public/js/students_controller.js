@@ -68,6 +68,11 @@ function StudentsController($http, $routeParams, $location, $interval) {
     $location.path('/classes');
   }
 
+  students.getFeed = function() {
+    $interval.cancel(stop);
+    $location.path('/classes/'+ $routeParams.classId + '/feed');
+  }
+
   // students.$on('$destroy', function() {
   //   $interval.cancel(stop);
   // });

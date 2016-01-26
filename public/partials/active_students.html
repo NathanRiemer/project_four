@@ -9,14 +9,13 @@
     {{students.classTitle}}<br>
     {{students.classSubject}}
   </a>
-  <!--<a class="item">
+  <a class="item" ng-click="students.getFeed()">
     <i class="feed icon"></i>
     Feed
-  </a>-->
+  </a>
 </div><!-- .ui.menu -->
 
 <div class="ui three stackable cards">
-  <!-- {{students.classTitle}} {{students.classSubject}} -->
   <div class="card" ng-repeat="student in students.all">
     <div class="content">
       <div class="left floated header">

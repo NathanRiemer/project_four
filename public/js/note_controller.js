@@ -4,8 +4,8 @@ NoteController.$inject = ['$http', '$routeParams', '$location'];
 
 function NoteController($http, $routeParams, $location) {
   var note = this;
-  note.student_name = "";
-  note.cancelLink = "/classes/"+ $routeParams.classId + '/students';
+  note.student_name = '';
+  note.cancelLink = '/classes/'+ $routeParams.classId + '/students';
   note.type = 'neutral';
 
   note.quickSelectList = {
