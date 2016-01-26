@@ -3,6 +3,7 @@
 My application is for tracking and reviewing students' classroom behavior. Teachers can log in and either track behavior or review data. If they choose to track behavior, they are able to select one of the their classes, bringing them to a list of the students in that class. They can record positive and negative behaviors for students, as well as notes. Notes may be positive, negative, or neutral and have quick-select options as well as the ability to manually enter text. Teachers can view a feed of all of the records associated with the class they are looking at.
 In review mode teachers can see graphs of behavior records over time.
 
+[Deployed app](http://behavior-tracker.herokuapp.com/#/)
 [Database notes](docs/data_notes.md)
 [ERD](docs/erd.png)
 [Client Interview](docs/client_interview_notes.md)
